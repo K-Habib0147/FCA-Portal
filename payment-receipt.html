@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FCA Payment Receipt</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <section class="receipt-page">
+
+        <div class="receipt-container">
+
+            <div class="receipt-header">
+
+                <h1>
+                    FEDPONAM COMRADES ASSOCIATION
+                </h1>
+
+                <p>
+                    Forged In Kaura, Destined for Greatness
+                </p>
+
+                <h2>
+                    PAYMENT RECEIPT
+                </h2>
+
+            </div>
+
+
+            <div class="receipt-info">
+
+                <p>
+                    <strong>Receipt Number:</strong>
+                    <span id="receiptNumber">---</span>
+                </p>
+
+                <p>
+                    <strong>Payment Date:</strong>
+                    <span id="paymentDate">---</span>
+                </p>
+
+            </div>
+
+
+            <div class="receipt-member">
+
+                <h3>
+                    Member Information
+                </h3>
+
+                <p>
+                    <strong>Full Name:</strong>
+                    <span id="memberName">---</span>
+                </p>
+
+                <p>
+                    <strong>Membership Number:</strong>
+                    <span id="membershipNumber">---</span>
+                </p>
+
+                <p>
+                    <strong>Application Number:</strong>
+                    <span id="applicationNumber">---</span>
+                </p>
+
+            </div>
+
+
+            <div class="receipt-payment">
+
+                <h3>
+                    Payment Information
+                </h3>
+
+                <p>
+                    <strong>Payment Type:</strong>
+                    <span id="paymentType">---</span>
+                </p>
+
+                <p>
+                    <strong>Payment Month:</strong>
+                    <span id="paymentMonth">---</span>
+                </p>
+
+                <p>
+                    <strong>Amount Paid:</strong>
+                    <span id="paymentAmount">₦0</span>
+                </p>
+
+                <p>
+                    <strong>Payment Method:</strong>
+                    <span id="paymentMethod">---</span>
+                </p>
+
+                <p>
+                    <strong>Payment Reference:</strong>
+                    <span id="paymentReference">---</span>
+                </p>
+
+            </div>
+
+
+            <div class="receipt-footer">
+
+                <p>
+                    Thank you for your payment.
+                </p>
+
+                <p>
+                    FEDPONAM COMRADES ASSOCIATION
+                </p>
+
+            </div>
+
+
+            <div class="receipt-buttons">
+
+                <button
+                    type="button"
+                    onclick="window.print()"
+                >
+                    Print / Download Receipt
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="history.back()"
+                >
+                    Back
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+
+
+    <script>
+
+        const SUPABASE_URL =
+            "https://iwsuneiqjkkyftwgpcii.supabase.co";
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_De2AdP7gL5sFSpDFOLJNOg_peuXzg7S";
+
+        const supabase =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            async function () {
+
+                const params =
+                    new URLSearchParams(
+                        window.location.search
+                    );
+
+
+                const memberId =
+                    params.get("member");
+
+                const paymentId =
+                    params.get("payment");
+
+
+                if (!memberId || !paymentId) {
+
+                    alert(
+                        "Payment information could not be found."
+                    );
+
+                    return;
+                }
+
+
+                const {
+                    data: sessionData
+                } =
+                    await supabase.auth.getSession();
+
+
+                if (
+                    !sessionData ||
+                    !sessionData.session
+                ) {
+
+                    alert(
+                        "Please login first."
+                    );
+
+                    window.location.href =
+                        "admin-login.html";
+
+                    return;
+                }
+
+
+                // LOAD MEMBER
+
+                const {
+                    data: member,
+                    error: memberError
+                } =
+                    await supabase
+                        .from("members")
+                        .select("*")
+                        .eq("id", memberId)
+                        .single();
+
+
+                if (memberError || !member) {
+
+                    console.error(
+                        memberError
+                    );
+
+                    alert(
+                        "Member information could not be found."
+                    );
+
+                    return;
+                }
+
+
+                // LOAD PAYMENT
+
+                const {
+                    data: payment,
+                    error: paymentError
+                } =
+                    await supabase
+                        .from("payment_history")
+                        .select("*")
+                        .eq("id", paymentId)
+                        .eq("member_id", memberId)
+                        .single();
+
+
+                if (paymentError || !payment) {
+
+                    console.error(
+                        paymentError
+                    );
+
+                    alert(
+                        "Payment record could not be found."
+                    );
+
+                    return;
+                }
+
+
+                // RECEIPT NUMBER
+
+                document.getElementById(
+                    "receiptNumber"
+                ).textContent =
+
+                    "FCA/RCPT/" +
+
+                    new Date(
+                        payment.payment_date
+                    ).getFullYear() +
+
+                    "/" +
+
+                    payment.id
+                        .replace(/-/g, "")
+                        .substring(0, 8)
+                        .toUpperCase();
+
+
+                // DATE
+
+                document.getElementById(
+                    "paymentDate"
+                ).textContent =
+
+                    new Date(
+                        payment.payment_date
+                    ).toLocaleString();
+
+
+                // MEMBER
+
+                document.getElementById(
+                    "memberName"
+                ).textContent =
+
+                    member.full_name ||
+                    "---";
+
+
+                document.getElementById(
+                    "membershipNumber"
+                ).textContent =
+
+                    member.membership_number ||
+                    "Not Assigned";
+
+
+                document.getElementById(
+                    "applicationNumber"
+                ).textContent =
+
+                    member.application_number ||
+                    "---";
+
+
+                // PAYMENT
+
+                document.getElementById(
+                    "paymentType"
+                ).textContent =
+
+                    payment.payment_type ||
+                    "---";
+
+
+                document.getElementById(
+                    "paymentMonth"
+                ).textContent =
+
+                    payment.payment_month ||
+                    "---";
+
+
+                document.getElementById(
+                    "paymentAmount"
+                ).textContent =
+
+                    "₦" +
+
+                    Number(
+                        payment.amount || 0
+                    ).toLocaleString();
+
+
+                document.getElementById(
+                    "paymentMethod"
+                ).textContent =
+
+                    payment.payment_method ||
+                    "---";
+
+
+                document.getElementById(
+                    "paymentReference"
+                ).textContent =
+
+                    payment.reference ||
+                    "---";
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

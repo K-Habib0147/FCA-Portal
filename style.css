@@ -1,0 +1,969 @@
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    color: #0B3D91;
+    text-align: center;
+}
+
+h2 {
+    color: #D4AF37;
+    text-align: center;
+}
+p {
+    text-align: center;
+    font-size: 18px;
+}
+nav {
+    background-color: #0B3D91;
+    padding: 15px;
+}
+
+nav h3 {
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 8px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #D4AF37;
+}
+.hero{
+    background:#0B3D91;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h1{
+    color:white;
+}
+
+.hero h2{
+    color:#D4AF37;
+}
+
+.hero p{
+    font-size:18px;
+    max-width:700px;
+    margin:auto;
+}
+
+.hero button{
+    margin-top:25px;
+    background:#D4AF37;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    font-size:18px;
+    border-radius:8px;
+}
+.about{
+    padding:50px 20px;
+    text-align:center;
+    background:white;
+}
+
+.about h2{
+    color:#0B3D91;
+}
+
+.about p{
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
+}
+.values{
+    background:#f5f5f5;
+    text-align:center;
+    padding:50px 20px;
+}
+
+.card{
+    background:white;
+    margin:20px auto;
+    padding:20px;
+    max-width:350px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+
+.card h3{
+    color:#0B3D91;
+}
+footer{
+    background:#0B3D91;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+}
+
+footer h3{
+    color:#D4AF37;
+}
+
+footer p{
+    margin:8px 0;
+}
+.stats{
+    background:#0B3D91;
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+}
+
+.stats h2{
+    color:#D4AF37;
+}
+
+.stat-card{
+    display:inline-block;
+    width:180px;
+    margin:15px;
+    padding:20px;
+    background:white;
+    color:black;
+    border-radius:10px;
+}
+
+.stat-card h3{
+    color:#0B3D91;
+    font-size:32px;
+    margin:0;
+}
+.news{
+    padding:50px 20px;
+    background:white;
+    text-align:center;
+}
+
+.news-card{
+    max-width:700px;
+    margin:20px auto;
+    padding:20px;
+    border-left:5px solid #D4AF37;
+    background:#f8f8f8;
+    text-align:left;
+    border-radius:8px;
+}
+
+.news-card h3{
+    color:#0B3D91;
+}
+.events{
+    background:#f5f5f5;
+    padding:50px 20px;
+    text-align:center;
+}
+
+.event-card{
+    background:white;
+    margin:20px auto;
+    max-width:600px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.event-card h3{
+    color:#0B3D91;
+}
+form{
+    max-width:500px;
+    margin:auto;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    background:#0B3D91;
+    color:white;
+    padding:12px 20px;
+    border:none;
+    border-radius:5px;
+}
+select{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+/* MEMBERSHIP FORM IMPROVEMENTS */
+
+form h3 {
+    color: #062b63;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 14px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    font-size: 15px;
+
+    font-family: Arial, sans-serif;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #062b63;
+}
+
+form textarea {
+    resize: vertical;
+}
+/* =========================================
+   FCA MEMBERSHIP ID CARD
+   ========================================= */
+
+.id-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 30px;
+    background: #f2f4f8;
+}
+
+.id-card {
+    width: 520px;
+    min-height: 300px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border: 3px solid #d4af37;
+}
+
+.id-header {
+    background: #062b63;
+    color: white;
+    text-align: center;
+    padding: 18px;
+}
+
+.id-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.id-header p {
+    margin: 5px 0 0;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+.id-body {
+    display: flex;
+    gap: 25px;
+    padding: 25px;
+    align-items: center;
+}
+
+.photo-section {
+    width: 120px;
+    height: 145px;
+    border: 3px solid #d4af37;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eeeeee;
+}
+
+.photo-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-details {
+    flex: 1;
+}
+
+.member-details h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #062b63;
+}
+
+.member-details p {
+    margin: 7px 0;
+    font-size: 14px;
+}
+
+.member-details strong {
+    color: #062b63;
+}
+
+.id-footer {
+    background: #062b63;
+    color: white;
+    text-align: center;
+    padding: 12px;
+}
+
+.id-footer p {
+    margin: 0;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+.id-page > button {
+    background: #062b63;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.id-page > button:hover {
+    background: #d4af37;
+    color: #062b63;
+}
+
+/* =========================================
+   PRINT ID CARD
+   ========================================= */
+
+@media print {
+
+    body {
+        margin: 0;
+        background: white;
+    }
+
+    .id-page {
+        padding: 0;
+        min-height: auto;
+        background: white;
+    }
+
+    .id-card {
+        box-shadow: none;
+    }
+
+    .id-page > button {
+        display: none;
+    }
+}
+
+/* =========================================
+   MOBILE ID CARD
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .id-card {
+        width: 95%;
+    }
+
+    .id-body {
+        gap: 15px;
+        padding: 18px;
+    }
+
+    .photo-section {
+        width: 90px;
+        height: 115px;
+    }
+
+    .member-details h2 {
+        font-size: 17px;
+    }
+
+    .member-details p {
+        font-size: 12px;
+    }
+}
+/* =========================================
+   FCA MEMBER DETAILS PAGE
+   ========================================= */
+
+.member-details-page {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: #f2f4f8;
+}
+
+.member-details-container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.member-details-container h1 {
+    text-align: center;
+    color: #062b63;
+    margin-bottom: 30px;
+}
+
+.member-profile {
+    display: flex;
+    gap: 35px;
+    align-items: flex-start;
+}
+
+.member-photo {
+    width: 180px;
+    height: 220px;
+    border: 4px solid #d4af37;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #eeeeee;
+    flex-shrink: 0;
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-information {
+    flex: 1;
+}
+
+.member-information h2 {
+    color: #062b63;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.member-information p {
+    padding: 10px 0;
+    margin: 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.member-information strong {
+    color: #062b63;
+}
+
+.member-details-container button {
+    margin-top: 25px;
+    margin-right: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #062b63;
+    color: white;
+    cursor: pointer;
+}
+
+.member-details-container button:hover {
+    background: #d4af37;
+    color: #062b63;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    .member-profile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-information {
+        width: 100%;
+    }
+
+    .member-photo {
+        width: 150px;
+        height: 185px;
+    }
+
+}
+/* ==========================================
+   MEMBER PROFILE
+========================================== */
+
+.member-profile-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.member-profile-section h2 {
+    color: #062b63;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+}
+
+.profile-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.profile-photo {
+    width: 150px;
+    min-width: 150px;
+}
+
+.profile-photo img {
+    width: 150px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #d4af37;
+}
+
+.profile-information {
+    flex: 1;
+}
+
+.profile-information p {
+    margin: 10px 0;
+    padding: 8px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.profile-information strong {
+    color: #062b63;
+}
+
+
+/* ==========================================
+   MOBILE PROFILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .profile-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-information {
+        width: 100%;
+    }
+
+}
+/* ==========================================
+   FCA EXECUTIVE PHOTOS
+ ========================================== */
+
+.executive-photo {
+    width: 180px;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+/* ==========================================
+   FCA EXECUTIVE COUNCIL GRID
+   ========================================== */
+
+.about {
+    text-align: center;
+}
+
+.about > .card {
+    display: inline-block;
+    vertical-align: top;
+    width: 260px;
+    min-height: 350px;
+    margin: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+/* EXECUTIVE PHOTO */
+
+.executive-photo {
+    width: 180px;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+
+/* EXECUTIVE NAME */
+
+.about > .card h3 {
+    margin: 10px 0 8px 0;
+}
+
+
+/* EXECUTIVE POSITION / NAME */
+
+.about > .card p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 600px) {
+
+    .about > .card {
+        display: block;
+        width: 90%;
+        max-width: 320px;
+        margin: 20px auto;
+    }
+
+    .executive-photo {
+        width: 170px;
+        height: 210px;
+    }
+
+}
+/* ==========================================
+   HOMEPAGE EXECUTIVE PHOTOS
+   ========================================== */
+
+.home-executive-photo {
+    width: 160px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+/* ==========================================
+   FCA WEBSITE LOGO
+   ========================================== */
+
+.site-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+
+.footer-logo {
+    margin: 0 auto 15px auto;
+}
+/* ==========================================
+   FCA MOBILE RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    /* HEADER */
+
+    .navbar {
+        flex-direction: column;
+        padding: 15px 10px;
+    }
+
+
+    .logo {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+    }
+
+
+    .logo h2 {
+        font-size: 20px;
+        margin: 8px 0 5px 0;
+    }
+
+
+    .logo small {
+        font-size: 12px;
+    }
+
+
+    .site-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+
+    /* NAVIGATION */
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 0;
+    }
+
+
+    .nav-links li {
+        margin: 0;
+    }
+
+
+    .nav-links a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding: 60px 20px;
+        min-height: auto;
+    }
+
+
+    .hero-content {
+        width: 100%;
+    }
+
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+
+    .hero p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+
+    .hero-buttons .btn {
+        width: 85%;
+        max-width: 300px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+
+    /* GENERAL SECTIONS */
+
+    .section {
+        padding: 45px 15px;
+    }
+
+
+    .section-title {
+        font-size: 28px;
+    }
+
+
+    .section-intro {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+
+    /* ABOUT */
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+
+    .info-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    /* CONSTITUTION */
+
+    .card {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+
+    .card .btn {
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+
+    /* EXECUTIVES */
+
+    .executive-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+
+    .executive-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    .home-executive-photo {
+        width: 160px;
+        height: 200px;
+    }
+
+
+    /* MEMBERSHIP */
+
+    .membership-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+
+    .membership-info,
+    .membership-actions {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    .fees {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+
+    /* CONTACT */
+
+    .contact-box {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 30px 15px;
+        text-align: center;
+    }
+
+
+    footer p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* ==========================================
+   SMALL PHONES
+   ========================================== */
+
+@media (max-width: 480px) {
+
+    .logo h2 {
+        font-size: 17px;
+    }
+
+
+    .logo small {
+        font-size: 11px;
+    }
+
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+
+    .section-title {
+        font-size: 25px;
+    }
+
+
+    .nav-links a {
+        font-size: 13px;
+        padding: 7px 8px;
+    }
+
+
+    .home-executive-photo {
+        width: 145px;
+        height: 185px;
+    }
+
+}

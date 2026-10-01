@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FCA Member Login</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <section class="login-page">
+
+        <div class="login-container">
+
+            <h1>FCA MEMBER LOGIN</h1>
+
+            <p>
+                FedPoNaM Comrades Association
+            </p>
+
+            <p>
+                Forged In Kaura, Destined for Greatness
+            </p>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="memberLoginForm">
+
+                <label for="memberEmail">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="memberEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label for="memberPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="memberPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+
+            <p id="loginMessage"></p>
+
+
+            <p>
+                Don't have an account?
+                <a href="membership.html">
+                    Apply for Membership
+                </a>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+
+    <script>
+
+        const SUPABASE_URL =
+            "https://iwsuneiqjkkyftwgpcii.supabase.co";
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_De2AdP7gL5sFSpDFOLJNOg_peuXzg7S";
+
+        const supabase =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+    </script>
+
+
+    <!-- MEMBER LOGIN JAVASCRIPT -->
+
+    <script src="member-login.js"></script>
+
+</body>
+
+</html>

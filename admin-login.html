@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        FCA Admin Login
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     HEADER / NAVIGATION
+     ========================================== -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <img
+                src="images/logo.png"
+                alt="FCA Logo"
+                class="site-logo"
+            >
+
+            <div>
+
+                <h2>
+                    FedPoNaM Comrades Association
+                </h2>
+
+                <small>
+                    Forged In Kaura, Destined for Greatness
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="constitution.html">
+                    Constitution
+                </a>
+            </li>
+
+            <li>
+                <a href="executive.html">
+                    Executives
+                </a>
+            </li>
+
+            <li>
+                <a href="membership.html">
+                    Membership
+                </a>
+            </li>
+
+            <li>
+                <a href="admin-dashboard.html">
+                    Admin Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#contact">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- ==========================================
+     ADMIN LOGIN
+     ========================================== -->
+
+<section class="login-page">
+
+    <div class="login-container">
+
+        <img
+            src="images/logo.png"
+            alt="FCA Logo"
+            class="site-logo"
+        >
+
+
+        <h1>
+            FCA ADMIN LOGIN
+        </h1>
+
+
+        <p>
+            FedPoNaM Comrades Association
+        </p>
+
+
+        <p>
+            Administrative Management Portal
+        </p>
+
+
+        <form id="adminLoginForm">
+
+
+            <label for="adminUsername">
+                Username
+            </label>
+
+            <input
+                type="text"
+                id="adminUsername"
+                placeholder="Enter admin username"
+                required
+            >
+
+
+            <label for="adminPassword">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Enter admin password"
+                required
+            >
+
+
+            <button type="submit">
+                Login to Admin Dashboard
+            </button>
+
+        </form>
+
+
+        <p id="adminLoginMessage"></p>
+
+
+        <p>
+
+            <a href="index.html">
+                ← Back to FCA Website
+            </a>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+
+<footer>
+
+    <img
+        src="images/logo.png"
+        alt="FCA Logo"
+        class="site-logo footer-logo"
+    >
+
+
+    <h3>
+        FEDPONAM COMRADES ASSOCIATION
+    </h3>
+
+
+    <p>
+        Forged In Kaura, Destined for Greatness
+    </p>
+
+
+    <hr>
+
+
+    <p>
+        © 2026 FCA. All Rights Reserved.
+    </p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+
+<script>
+    const SUPABASE_URL =
+        "https://iwsuneiqjkkyftwgpcii.supabase.co";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+        "sb_publishable_De2AdP7gL5sFSpDFOLJNOg_peuXzg7S";
+
+    const supabase =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_PUBLISHABLE_KEY
+        );
+</script>
+
+<script src="admin-login.js"></script>
+
+
+</body>
+
+</html>

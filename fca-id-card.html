@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FCA Membership ID Card</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- ID Card Download Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+
+
+<body>
+
+    <section class="id-page">
+
+        <!-- ==========================================
+             FCA MEMBERSHIP ID CARD
+             ========================================== -->
+
+        <div
+            class="id-card"
+            id="membershipIDCard"
+        >
+
+            <!-- HEADER -->
+
+            <div class="id-header">
+
+                <h2>
+                    FEDPONAM COMRADES ASSOCIATION
+                </h2>
+
+                <p>
+                    MEMBERSHIP ID CARD
+                </p>
+
+            </div>
+
+
+            <!-- BODY -->
+
+            <div class="id-body">
+
+
+                <!-- MEMBER PHOTO -->
+
+                <div class="photo-section">
+
+                    <img
+                        id="memberPhoto"
+                        src=""
+                        alt="Member Passport"
+                    >
+
+                </div>
+
+
+                <!-- MEMBER INFORMATION -->
+
+                <div class="member-details">
+
+                    <h2 id="memberName">
+                        Member Name
+                    </h2>
+
+
+                    <p>
+
+                        <strong>
+                            Membership No:
+                        </strong>
+
+                        <span id="membershipNumber">
+                            ---
+                        </span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>
+                            Application No:
+                        </strong>
+
+                        <span id="applicationNumber">
+                            ---
+                        </span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>
+                            Department:
+                        </strong>
+
+                        <span id="department">
+                            ---
+                        </span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>
+                            School:
+                        </strong>
+
+                        <span id="school">
+                            ---
+                        </span>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>
+                            Status:
+                        </strong>
+
+                        <span id="status">
+                            ---
+                        </span>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <div class="id-footer">
+
+                <p>
+                    Forged In Kaura, Destined for Greatness
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==========================================
+             ACTION BUTTONS
+             ========================================== -->
+
+        <div class="id-actions">
+
+            <button
+                type="button"
+                id="downloadIDButton"
+            >
+                ⬇ Download ID Card
+            </button>
+
+
+            <button
+                type="button"
+                id="printIDButton"
+            >
+                🖨 Print ID Card
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         SUPABASE
+         ========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+
+
+    <script>
+
+        const SUPABASE_URL =
+            "https://iwsuneiqjkkyftwgpcii.supabase.co";
+
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_De2AdP7gL5sFSpDFOLJNOg_peuXzg7S";
+
+
+        const supabase =
+            window.supabase.createClient(
+
+                SUPABASE_URL,
+
+                SUPABASE_PUBLISHABLE_KEY
+
+            );
+
+    </script>
+
+
+    <!-- FCA ID CARD SCRIPT -->
+
+    <script src="fca-id-card.js"></script>
+
+
+    <!-- ==========================================
+         DOWNLOAD ID CARD
+         ========================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                const downloadButton =
+                    document.getElementById(
+                        "downloadIDButton"
+                    );
+
+
+                const printButton =
+                    document.getElementById(
+                        "printIDButton"
+                    );
+
+
+                // ==========================================
+                // DOWNLOAD
+                // ==========================================
+
+                if (downloadButton) {
+
+                    downloadButton.addEventListener(
+                        "click",
+                        function () {
+
+
+                            const idCard =
+                                document.getElementById(
+                                    "membershipIDCard"
+                                );
+
+
+                            if (!idCard) {
+
+                                alert(
+                                    "ID Card could not be found."
+                                );
+
+                                return;
+                            }
+
+
+                            html2canvas(
+                                idCard,
+                                {
+
+                                    scale: 3,
+
+                                    useCORS: true,
+
+                                    backgroundColor:
+                                        "#ffffff"
+
+                                }
+                            )
+                            .then(
+                                function (canvas) {
+
+
+                                    const link =
+                                        document.createElement(
+                                            "a"
+                                        );
+
+
+                                    const memberName =
+                                        document
+                                            .getElementById(
+                                                "memberName"
+                                            )
+                                            .textContent
+                                            .trim();
+
+
+                                    const safeName =
+                                        memberName
+                                            .replace(
+                                                /[^a-z0-9]/gi,
+                                                "-"
+                                            )
+                                            .toLowerCase();
+
+
+                                    link.download =
+                                        "FCA-Membership-ID-" +
+                                        safeName +
+                                        ".png";
+
+
+                                    link.href =
+                                        canvas.toDataURL(
+                                            "image/png"
+                                        );
+
+
+                                    link.click();
+
+                                }
+                            )
+                            .catch(
+                                function (error) {
+
+
+                                    console.error(
+                                        "ID Card download error:",
+                                        error
+                                    );
+
+
+                                    alert(
+                                        "Unable to download the ID card. Please try again."
+                                    );
+
+                                }
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                // ==========================================
+                // PRINT
+                // ==========================================
+
+                if (printButton) {
+
+                    printButton.addEventListener(
+                        "click",
+                        function () {
+
+                            window.print();
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

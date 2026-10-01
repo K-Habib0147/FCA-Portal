@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FCA Payment Management</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="dashboard-container">
+
+
+        <!-- HEADER -->
+
+        <div class="dashboard-header">
+
+            <h1>
+                FCA Payment Management
+            </h1>
+
+            <p>
+                Manage membership payments and payment history.
+            </p>
+
+        </div>
+
+
+
+        <!-- MEMBER INFORMATION -->
+
+        <div class="member-info-section">
+
+            <h2>
+                Member Information
+            </h2>
+
+            <p>
+                <strong>Full Name:</strong>
+                <span id="memberName">---</span>
+            </p>
+
+            <p>
+                <strong>Membership Number:</strong>
+                <span id="membershipNumber">---</span>
+            </p>
+
+            <p>
+                <strong>Application Number:</strong>
+                <span id="applicationNumber">---</span>
+            </p>
+
+        </div>
+
+
+
+        <!-- PAYMENT SUMMARY -->
+
+        <div class="payment-summary">
+
+            <h2>
+                Payment Summary
+            </h2>
+
+            <p>
+                <strong>Registration Fee:</strong>
+                <span id="registrationFee">₦2,000</span>
+            </p>
+
+            <p>
+                <strong>Monthly Dues:</strong>
+                <span id="monthlyDuesSummary">₦0</span>
+            </p>
+
+            <p>
+                <strong>Total Due:</strong>
+                <span id="totalDue">₦0</span>
+            </p>
+
+            <p>
+                <strong>Amount Paid:</strong>
+                <span id="amountPaid">₦0</span>
+            </p>
+
+            <p>
+                <strong>Outstanding Balance:</strong>
+                <span id="outstandingBalance">₦0</span>
+            </p>
+
+            <p>
+                <strong>Payment Status:</strong>
+                <span id="paymentStatus">Pending</span>
+            </p>
+
+        </div>
+
+
+
+        <!-- RECORD PAYMENT -->
+
+        <div class="payment-form-section">
+
+            <h2>
+                Record New Payment
+            </h2>
+
+            <form id="paymentForm">
+
+
+                <div>
+
+                    <label for="paymentType">
+                        Payment Type
+                    </label>
+
+                    <select
+                        id="paymentType"
+                        required
+                    >
+
+                        <option value="">
+                            Select payment type
+                        </option>
+
+                        <option value="Registration Fee">
+                            Registration Fee
+                        </option>
+
+                        <option value="Monthly Dues">
+                            Monthly Dues
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div>
+
+                    <label for="paymentMonth">
+                        Payment Month
+                    </label>
+
+                    <select
+                        id="paymentMonth"
+                    >
+
+                        <option value="">
+                            Select month
+                        </option>
+
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div>
+
+                    <label for="paymentAmount">
+                        Payment Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="paymentAmount"
+                        min="1"
+                        placeholder="Enter amount"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div>
+
+                    <label for="paymentMethod">
+                        Payment Method
+                    </label>
+
+                    <select
+                        id="paymentMethod"
+                        required
+                    >
+
+                        <option value="">
+                            Select payment method
+                        </option>
+
+                        <option value="Cash">
+                            Cash
+                        </option>
+
+                        <option value="Bank Transfer">
+                            Bank Transfer
+                        </option>
+
+                        <option value="POS">
+                            POS
+                        </option>
+
+                        <option value="Online Payment">
+                            Online Payment
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div>
+
+                    <label for="paymentReference">
+                        Payment Reference
+                    </label>
+
+                    <input
+                        type="text"
+                        id="paymentReference"
+                        placeholder="e.g. FCA-TRX-003"
+                    >
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                >
+                    Record Payment
+                </button>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- PAYMENT HISTORY -->
+
+        <div class="payment-history">
+
+            <h2>
+                Payment History
+            </h2>
+
+
+            <div style="overflow-x:auto;">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>
+                                Payment Type
+                            </th>
+
+                            <th>
+                                Month
+                            </th>
+
+                            <th>
+                                Amount
+                            </th>
+
+                            <th>
+                                Payment Method
+                            </th>
+
+                            <th>
+                                Reference
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody
+                        id="paymentHistoryTable"
+                    >
+
+                        <tr>
+
+                            <td colspan="8">
+                                No payment history available.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BACK BUTTON -->
+
+        <div style="margin-top:25px;">
+
+            <button
+                type="button"
+                onclick="window.location.href='admin-dashboard.html'"
+            >
+                Back to Admin Dashboard
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+
+
+    <script>
+
+        const SUPABASE_URL =
+            "https://iwsuneiqjkkyftwgpcii.supabase.co";
+
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_De2AdP7gL5sFSpDFOLJNOg_peuXzg7S";
+
+
+        const supabase =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+    </script>
+
+
+
+    <script src="payment-management.js"></script>
+
+
+</body>
+
+</html>

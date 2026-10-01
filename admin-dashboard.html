@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FCA Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         NAVIGATION
+         ========================================== -->
+
+    <nav>
+
+        <div class="logo">
+            FCA ADMIN
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a href="dashboard.html">
+                    Member Dashboard
+                </a>
+            </li>
+
+
+            <li>
+                <a href="admin-dashboard.html">
+                    Admin Dashboard
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ==========================================
+         ADMIN DASHBOARD
+         ========================================== -->
+
+    <section class="admin-dashboard">
+
+        <div class="admin-container">
+
+
+            <h1>
+                FCA Admin Dashboard
+            </h1>
+
+
+            <button
+                type="button"
+                id="adminLogoutButton"
+            >
+                Logout
+            </button>
+
+
+            <p>
+                Manage FedPoNaM Comrades Association
+                membership applications.
+            </p>
+
+
+
+            <!-- ==========================================
+                 STATISTICS
+                 ========================================== -->
+
+            <div class="admin-stats">
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Total Members
+                    </h3>
+
+                    <p id="totalMembers">
+                        0
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Pending Applications
+                    </h3>
+
+                    <p id="pendingMembers">
+                        0
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Approved Members
+                    </h3>
+
+                    <p id="approvedMembers">
+                        0
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Rejected Applications
+                    </h3>
+
+                    <p id="rejectedMembers">
+                        0
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 SEARCH
+                 ========================================== -->
+
+            <div class="admin-search">
+
+                <input
+                    type="text"
+                    id="memberSearch"
+                    placeholder="Search member by name, email or application number"
+                >
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 MEMBER TABLE
+                 ========================================== -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                #
+                            </th>
+
+                            <th>
+                                Full Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Application Number
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="membersTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         SUPABASE
+         ========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+
+
+    <script>
+
+        const SUPABASE_URL =
+            "https://iwsuneiqjkkyftwgpcii.supabase.co";
+
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_De2AdP7gL5sFSpDFOLJNOg_peuXzg7S";
+
+
+        const supabase =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+
+        // ==========================================
+        // PROTECT ADMIN DASHBOARD
+        // ==========================================
+
+        async function checkAdminSession() {
+
+            try {
+
+                const {
+                    data: {
+                        session
+                    },
+                    error
+                } =
+                    await supabase.auth.getSession();
+
+
+                if (error) {
+
+                    console.error(
+                        "Session error:",
+                        error
+                    );
+
+                    window.location.href =
+                        "admin-login.html";
+
+                    return;
+                }
+
+
+                if (!session) {
+
+                    window.location.href =
+                        "admin-login.html";
+
+                    return;
+                }
+
+
+                // Admin is authenticated
+                console.log(
+                    "FCA Admin authenticated."
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Authentication error:",
+                    error
+                );
+
+                window.location.href =
+                    "admin-login.html";
+
+            }
+
+        }
+
+
+        // ==========================================
+        // ADMIN LOGOUT
+        // ==========================================
+
+        async function logoutAdmin() {
+
+            const confirmation =
+                confirm(
+                    "Are you sure you want to logout?"
+                );
+
+
+            if (!confirmation) {
+                return;
+            }
+
+
+            try {
+
+                await supabase.auth.signOut();
+
+
+                sessionStorage.removeItem(
+                    "fcaAdminLoggedIn"
+                );
+
+
+                window.location.href =
+                    "admin-login.html";
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Logout error:",
+                    error
+                );
+
+                alert(
+                    "Unable to logout. Please try again."
+                );
+
+            }
+
+        }
+
+
+        // ==========================================
+        // LOGOUT BUTTON
+        // ==========================================
+
+        document
+            .getElementById("adminLogoutButton")
+            .addEventListener(
+                "click",
+                logoutAdmin
+            );
+
+
+        // ==========================================
+        // START AUTHENTICATION CHECK
+        // ==========================================
+
+        checkAdminSession();
+
+    </script>
+
+
+
+    <!-- ==========================================
+         FCA ADMIN JAVASCRIPT
+         ========================================== -->
+
+    <script src="admin.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FCA Member Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         NAVIGATION
+    =========================================== -->
+
+    <nav>
+
+        <div class="logo">
+            FCA MEMBER
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+
+            <li>
+                <a href="membership.html">
+                    Membership
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ==========================================
+         MEMBER DASHBOARD
+    =========================================== -->
+
+    <section class="dashboard">
+
+        <div class="dashboard-container">
+
+
+            <h1>
+                FCA Member Dashboard
+            </h1>
+
+
+
+            <!-- ==================================
+                 MEMBER SUMMARY
+            =================================== -->
+
+            <div class="member-summary">
+
+                <h2>
+
+                    Welcome,
+
+                    <span id="memberName">
+                        Member
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    <strong>
+                        Application Number:
+                    </strong>
+
+                    <span id="applicationNumber">
+                        ---
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Membership Number:
+                    </strong>
+
+                    <span id="membershipNumber">
+                        Not Assigned
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Membership Status:
+                    </strong>
+
+                    <span id="memberStatus">
+                        ---
+                    </span>
+
+                </p>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 PAYMENT SECTION
+            =================================== -->
+
+            <div class="payment-section">
+
+                <h2>
+                    Membership Payment
+                </h2>
+
+
+                <p>
+
+                    <strong>
+                        Registration Fee:
+                    </strong>
+
+                    ₦2,000
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Monthly Dues:
+                    </strong>
+
+                    ₦1,000
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Payment Status:
+                    </strong>
+
+                    <span id="paymentStatus">
+                        ---
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Amount Paid:
+                    </strong>
+
+                    <span id="amountPaid">
+                        ₦0
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <strong>
+                        Outstanding Balance:
+                    </strong>
+
+                    <span id="outstandingBalance">
+                        ₦0
+                    </span>
+
+                </p>
+
+
+
+                <!-- ==================================
+                     PAYMENT HISTORY
+                =================================== -->
+
+                <div class="payment-history">
+
+                    <h2>
+                        Payment History
+                    </h2>
+
+
+                    <div
+                        style="overflow-x:auto;"
+                    >
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Date
+                                    </th>
+
+                                    <th>
+                                        Payment Type
+                                    </th>
+
+                                    <th>
+                                        Month
+                                    </th>
+
+                                    <th>
+                                        Amount
+                                    </th>
+
+                                    <th>
+                                        Payment Method
+                                    </th>
+
+                                    <th>
+                                        Reference
+                                    </th>
+
+                                    <th>
+                                        Receipt
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody
+                                id="memberPaymentHistory"
+                            >
+
+                                <tr>
+
+                                    <td colspan="7">
+
+                                        No payment history
+                                        available.
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 MEMBER PROFILE
+            =================================== -->
+
+            <div class="member-profile-section">
+
+                <h2>
+                    My Profile
+                </h2>
+
+
+                <div class="profile-content">
+
+
+                    <!-- PROFILE PHOTO -->
+
+                    <div class="profile-photo">
+
+                        <img
+                            id="dashboardMemberPhoto"
+                            src=""
+                            alt="Member Passport"
+                        >
+
+                    </div>
+
+
+
+                    <!-- PROFILE INFORMATION -->
+
+                    <div class="profile-information">
+
+
+                        <p>
+
+                            <strong>
+                                Full Name:
+                            </strong>
+
+                            <span id="profileFullName">
+                                ---
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Email:
+                            </strong>
+
+                            <span id="profileEmail">
+                                ---
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Phone:
+                            </strong>
+
+                            <span id="profilePhone">
+                                ---
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Gender:
+                            </strong>
+
+                            <span id="profileGender">
+                                ---
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Department:
+                            </strong>
+
+                            <span id="profileDepartment">
+                                ---
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                School / Faculty:
+                            </strong>
+
+                            <span id="profileSchool">
+                                ---
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Graduation Year:
+                            </strong>
+
+                            <span id="profileGraduationYear">
+                                ---
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Matric Number:
+                            </strong>
+
+                            <span id="profileMatricNumber">
+                                ---
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                State of Origin:
+                            </strong>
+
+                            <span id="profileStateOrigin">
+                                ---
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Occupation:
+                            </strong>
+
+                            <span id="profileOccupation">
+                                ---
+                            </span>
+
+                        </p>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     EDIT PROFILE BUTTON
+                =================================== -->
+
+                <button
+                    type="button"
+                    onclick="toggleEditProfile()"
+                >
+
+                    Edit Profile
+
+                </button>
+
+
+
+                <!-- ==================================
+                     EDIT PROFILE FORM
+                =================================== -->
+
+                <div
+                    id="editProfileForm"
+                    style="display: none;"
+                >
+
+                    <h3>
+                        Edit My Profile
+                    </h3>
+
+
+                    <!-- ==================================
+                         PASSPORT PHOTO
+                    =================================== -->
+
+                    <label for="passportPhoto">
+                        Passport Photograph
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="passportPhoto"
+                        accept="image/*"
+                    >
+
+
+                    <small>
+
+                        Upload a clear passport
+                        photograph.
+
+                        Maximum size:
+                        2 MB.
+
+                    </small>
+
+
+                    <br>
+                    <br>
+
+
+                    <label for="editEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="editEmail"
+                        placeholder="Enter email"
+                    >
+
+
+                    <label for="editPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editPhone"
+                        placeholder="Enter phone number"
+                    >
+
+
+                    <label for="editAddress">
+                        Current Address
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editAddress"
+                        placeholder="Enter current address"
+                    >
+
+
+                    <label for="editOccupation">
+                        Occupation
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editOccupation"
+                        placeholder="Enter occupation"
+                    >
+
+
+                    <label for="editEmergencyName">
+                        Emergency Contact Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editEmergencyName"
+                        placeholder="Enter emergency contact name"
+                    >
+
+
+                    <label for="editEmergencyPhone">
+                        Emergency Contact Phone
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editEmergencyPhone"
+                        placeholder="Enter emergency contact phone"
+                    >
+
+
+                    <br>
+                    <br>
+
+
+                    <button
+                        type="button"
+                        onclick="saveProfileChanges()"
+                    >
+
+                        Save Changes
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="toggleEditProfile()"
+                    >
+
+                        Cancel
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 CHANGE PASSWORD
+            =================================== -->
+
+            <div class="change-password-section">
+
+                <h2>
+                    Change Password
+                </h2>
+
+
+                <label for="currentPassword">
+                    Current Password
+                </label>
+
+                <input
+                    type="password"
+                    id="currentPassword"
+                    placeholder="Enter current password"
+                >
+
+
+                <label for="newPassword">
+                    New Password
+                </label>
+
+                <input
+                    type="password"
+                    id="newPassword"
+                    placeholder="Enter new password"
+                    minlength="6"
+                >
+
+
+                <label for="confirmNewPassword">
+                    Confirm New Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmNewPassword"
+                    placeholder="Confirm new password"
+                    minlength="6"
+                >
+
+
+                <br>
+                <br>
+
+
+                <button
+                    type="button"
+                    onclick="changeMemberPassword()"
+                >
+
+                    Change Password
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 MEMBERSHIP ID & LOGOUT
+            =================================== -->
+
+            <div class="dashboard-actions">
+
+
+                <button
+                    type="button"
+                    onclick="window.location.href='fca-id-card.html'"
+                >
+
+                    Download Membership ID
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="logoutMember()"
+                >
+
+                    Logout
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         SUPABASE
+    =========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.min.js"></script>
+
+
+    <script>
+
+        const SUPABASE_URL =
+            "https://iwsuneiqjkkyftwgpcii.supabase.co";
+
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_De2AdP7gL5sFSpDFOLJNOg_peuXzg7S";
+
+
+        const supabase =
+            window.supabase.createClient(
+
+                SUPABASE_URL,
+
+                SUPABASE_PUBLISHABLE_KEY
+
+            );
+
+    </script>
+
+
+
+    <!-- ==========================================
+         DASHBOARD JAVASCRIPT
+    =========================================== -->
+
+    <script src="dashboard.js"></script>
+
+
+</body>
+
+</html>
